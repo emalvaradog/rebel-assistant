@@ -7,7 +7,7 @@ from langchain.schema import (AIMessage, HumanMessage, SystemMessage)
 from langchain.document_loaders import PyPDFLoader
 from langchain.indexes import VectorstoreIndexCreator
 
-os.environ["OPENAI_API_KEY"] = ''
+# os.environ["OPENAI_API_KEY"] = ''
 
 # Streamlit APP
 st.header("Rebel by datarebels")
