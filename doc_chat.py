@@ -9,12 +9,12 @@ from langchain.indexes import VectorstoreIndexCreator
 
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
+if "messages" not in st.session_state:
+  st.session_state['messages'] = []
+
 # Streamlit APP
 st.header("Rebel by datarebels")
 uploaded_file = st.file_uploader("Upload your .pdf file", type="pdf")
-
-if "messages" not in st.session_state:
-  st.session_state.messages = []
 
 # GUI Chat messages
 for message in st.session_state.messages:
@@ -26,6 +26,7 @@ for message in st.session_state.messages:
   elif isinstance(message, AIMessage):
     with st.chat_message("rebel"):
       st.write(message.content)
+  
 
 user_input = st.chat_input(placeholder="Primero sube un archivo PDF", disabled=True)
 

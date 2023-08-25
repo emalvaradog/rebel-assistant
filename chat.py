@@ -3,9 +3,12 @@ import streamlit as st
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ChatMessageHistory
 from langchain.schema import (AIMessage, HumanMessage, SystemMessage)
+import os
 
 # Setting up LLMs
-chat = ChatOpenAI(openai_api_key="", streaming=True)
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+
+chat = ChatOpenAI(streaming=True)
 
 history = [SystemMessage(content="""Eres un asistente virtual llamado Rebel que ayuda a los estudiantes de DataRebels a resolver sus dudas sobre actividades, proyectos y cursos. Los estudiantes están cursando el programa de Python Fundamentals que se divide en los siguientes bloques: Bloque 1: Creación del entorno de desarrollo
 
