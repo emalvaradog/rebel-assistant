@@ -1,11 +1,15 @@
 # Imports
+__import__('pysqlite3')
 import os
+import sys
 import streamlit as st
 from tempfile import NamedTemporaryFile
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import (AIMessage, HumanMessage, SystemMessage)
 from langchain.document_loaders import PyPDFLoader
 from langchain.indexes import VectorstoreIndexCreator
+
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 

@@ -4,3 +4,4 @@ openai
 pypdf
 streamlit
 tiktoken
+pysqlite3-binary
