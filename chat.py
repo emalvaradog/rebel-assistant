@@ -19,7 +19,7 @@ def handle_conversation(user_input):
   return res
 
 # Streamlit APP
-st.header("Rebel by datarebels😎")
+st.header("ChatGPT Clone")
 
 if "messages" not in st.session_state:
   st.session_state.messages = history
